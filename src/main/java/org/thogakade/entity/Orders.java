@@ -20,7 +20,7 @@ public class Orders implements Serializable {
     private String orderID;
     private Date date;
     private Time time;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Customer customer;
     @ToString.Exclude
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "orders", orphanRemoval = true, fetch = FetchType.EAGER)

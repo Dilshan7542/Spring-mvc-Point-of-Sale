@@ -3,7 +3,9 @@ package org.thogakade.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.thogakade.dto.OrderDetailDTO;
 import org.thogakade.dto.OrdersDTO;
+import org.thogakade.entity.OrderDetail;
 import org.thogakade.repo.OrderDetailsRepo;
 import org.thogakade.repo.OrdersRepo;
 import org.thogakade.service.PurchaseOrderService;
@@ -19,6 +21,10 @@ public class OrdersController {
 
    @PostMapping
         public ResponseUtil saveOrder(@RequestBody OrdersDTO ordersDTO){
+       for (OrderDetailDTO orderDetail : ordersDTO.getOrderDetailList()) {
+           System.out.println(orderDetail.getOrders().getOrderID());
+           System.out.println(orderDetail.getItem().getItemCode());
+       }
             return new ResponseUtil("OK","Successfully",purchaseOrderService.savePurchaseOrder(ordersDTO));
         }
         @PutMapping

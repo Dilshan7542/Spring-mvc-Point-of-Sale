@@ -45,5 +45,9 @@ public class CustomerController {
           System.out.println("param");
         return customerService.getAllCustomer();
       }
+      @DeleteMapping(path = "delete",params = "customerID")
+      public ResponseUtil deleteCustomer(@RequestParam String customerID){
+          return new ResponseUtil("200","Successfully",customerService.deleteCustomer(customerID));
+      }
 
 }

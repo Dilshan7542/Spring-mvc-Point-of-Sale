@@ -10,9 +10,8 @@ import org.thogakade.entity.Orders;
 @NoArgsConstructor
 @Data
 public class OrderDetailDTO {
-   private Orders orders;
-   private Item item;
-   private String description;
+   private OrdersDTO orders;
+   private ItemDTO item;
    private int qty;
    private double unitPrice;
    private int discount;

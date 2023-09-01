@@ -4,9 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.thogakade.entity.Customer;
-import org.thogakade.entity.OrderDetail;
-
 import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
@@ -18,7 +15,7 @@ public class OrdersDTO {
     private String orderID;
     private Date date;
     private Time time;
-    private Customer customer;
+    private CustomerDTO customer;
     @ToString.Exclude
-    private List<OrderDetail> orderDetailList;
+    private List<OrderDetailDTO> orderDetailList;
 }

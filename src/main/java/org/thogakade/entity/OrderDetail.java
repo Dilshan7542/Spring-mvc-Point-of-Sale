@@ -14,14 +14,13 @@ import java.io.Serializable;
 @IdClass(OrderDetail_PK.class)
 public class OrderDetail{
     @Id
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "orderID")
    Orders orders;
     @Id
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "itemCode")
     Item item;
-    private String description;
     private int qty;
     private double unitPrice;
     private int discount;
