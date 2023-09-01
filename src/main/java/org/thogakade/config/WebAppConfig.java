@@ -8,4 +8,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 @ComponentScan(basePackages = "org.thogakade")
 public class WebAppConfig {
+
+
 }

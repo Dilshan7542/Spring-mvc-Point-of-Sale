@@ -1,4 +1,3 @@
-package org.thogakade;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import org.thogakade.config.WebAppConfig;
 import org.thogakade.config.WebRootConfig;
