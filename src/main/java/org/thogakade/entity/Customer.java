@@ -5,10 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
@@ -23,6 +20,8 @@ public class Customer {
     private String email;
     private String phone;
     private double salary;
+    @Lob
+    private byte [] image;
     @ToString.Exclude
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "customer")
    private List<Orders> orderDetailList;

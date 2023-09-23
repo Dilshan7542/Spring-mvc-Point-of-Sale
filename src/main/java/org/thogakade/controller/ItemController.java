@@ -3,7 +3,6 @@ package org.thogakade.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.thogakade.dto.ItemDTO;
-import org.thogakade.entity.Item;
 import org.thogakade.service.ItemService;
 import org.thogakade.util.ResponseUtil;
 
@@ -33,6 +32,10 @@ public class ItemController {
      @GetMapping
      public ResponseUtil getAllItem(){
          return new ResponseUtil("OK","Successfully",itemService.getAllItem());
+     }
+     @DeleteMapping
+     public ResponseUtil delete(@RequestParam String itemCode){
+        return new ResponseUtil("ok","Successfully",itemService.deleteItem(itemCode));
      }
 }
 

@@ -1,6 +1,5 @@
 package org.thogakade.service;
 
-import org.thogakade.dto.CustomerDTO;
 import org.thogakade.dto.ItemDTO;
 
 import java.util.List;

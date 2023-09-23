@@ -1,7 +1,6 @@
 package org.thogakade.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.thogakade.dto.CustomerDTO;
@@ -16,6 +15,7 @@ import java.util.List;
 public class CustomerController {
 @Autowired
   CustomerService customerService;
+
     @PostMapping
       public ResponseUtil saveCustomerForm(@ModelAttribute CustomerDTO customerDTO){
        return new ResponseUtil("200","successfully",customerService.saveCustomer(customerDTO));
@@ -27,12 +27,14 @@ public class CustomerController {
        return new ResponseUtil("200","successfully",customerService.saveCustomer(customerDTO));
     }
 
+
+
     @PutMapping
     public ResponseUtil updateCustomer(@RequestBody CustomerDTO customerDTO){
         return new ResponseUtil("200","Successfully",customerService.updateCustomer(customerDTO));
     }
     @GetMapping(path = "search",params = "customerID")
-    public ResponseUtil searchCustomer(@RequestParam String id){
+    public ResponseUtil searchCustomer(@RequestParam("customerID") String id){
         return new ResponseUtil("200","Successfully",customerService.searchCustomer(id));
     }
       @GetMapping
@@ -45,6 +47,7 @@ public class CustomerController {
           System.out.println("param");
         return customerService.getAllCustomer();
       }
+
       @DeleteMapping(path = "delete",params = "customerID")
       public ResponseUtil deleteCustomer(@RequestParam String customerID){
           return new ResponseUtil("200","Successfully",customerService.deleteCustomer(customerID));
