@@ -16,18 +16,23 @@ public class CustomerController {
 @Autowired
   CustomerService customerService;
 
-    @PostMapping
+    @PostMapping(path = "form")
       public ResponseUtil saveCustomerForm(@ModelAttribute CustomerDTO customerDTO){
        return new ResponseUtil("200","successfully",customerService.saveCustomer(customerDTO));
       }
 
-      @PostMapping(path = "json")
+      @PostMapping
     public ResponseUtil saveCustomerJSON(@RequestBody CustomerDTO customerDTO){
         System.out.println("JSON ");
        return new ResponseUtil("200","successfully",customerService.saveCustomer(customerDTO));
     }
 
-
+    @PutMapping(path = "image/{customerID}",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseUtil updateCustomerImage(@PathVariable String customerID, @RequestPart byte[] image){
+        CustomerDTO customerDTO = customerService.searchCustomer(customerID);
+        customerDTO.setImage(image);
+        return new ResponseUtil("200","Successfully",customerService.updateCustomer(customerDTO));
+    }
 
     @PutMapping
     public ResponseUtil updateCustomer(@RequestBody CustomerDTO customerDTO){

@@ -24,7 +24,6 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 
     @Override
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {
-        String temp="D:\\.WORK AREA\\Spring\\thogakade\\thogakade\\src\\main\\java\\org\\thogakade\\img";
-        registration.setMultipartConfig(new MultipartConfigElement("/img"));
+        registration.setMultipartConfig(new MultipartConfigElement("D:\\temp"));
     }
 }
