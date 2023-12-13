@@ -1,4 +1,4 @@
-# spring Web-MVC-Point of Sale System
+# Spring Web-MVC-Point of Sale System
 <ul> 
   <li>Java-8</li>
    <li>Spring MVC</li>
